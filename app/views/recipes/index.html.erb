@@ -1,28 +1,38 @@
 <div class="header">
   <div class="header__title">
-    ここにタイトル
+    
   </div>
   <div class="header__images">
     <img src="../images/illustrain06-inu02.png" class="header__images--dog">
     <img src="../images/illustrain10-inu02.png" class="header__images--disc">
   </div>
   <div class="header__detail">
-    サイトの説明文とかいろいろ
+    
   </div>
 </div>
+
 
 <div class="wrapper">
   <div class="side">
     <div class="sidebar">
       <div class="category">
         <div class="category__name">
+          
           <% if user_signed_in? %>
-            <%= current_user.name %><br>
+          <div class="list-group-item" id="current-name">
+            <%= current_user.name %>
+          </div>
           <% end %>
-          <%= link_to "レシピ投稿", new_recipe_path %>
-          <%= link_to "新規登録", new_user_registration_path %>
-          <%= link_to "サインイン", new_user_session_path %>
-          <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+          <%= link_to "トップページ", root_path, class:"list-group-item" %>
+          <% if user_signed_in? %>
+          <%= link_to "レシピ投稿", new_recipe_path, class:"list-group-item" %>
+          <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class:"list-group-item"  %>
+          
+          <% else %>
+          <%= link_to "新規登録", new_user_registration_path, class:"list-group-item"  %>
+          <%= link_to "サインイン", new_user_session_path, class:"list-group-item"  %>          
+          <% end %>
+          
         </div>
       </div>
     </div>
@@ -31,12 +41,13 @@
   <div class="main">
     <div class="contents">
       <div class="recipes">
-        <h1>レシピ一覧</h1>
-        <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200, "gutter": 50, "fitWidth": true }'>
-         
+              
+      <div class="container">
+        <p class="new-howto__recipe-name">レシピ一覧</p>
+        <div class="card-columns">
           <%= render @recipes %>
-
         </div>
+      </div>
       </div>
     </div>
   </div>
