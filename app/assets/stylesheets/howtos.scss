@@ -1,17 +1,26 @@
 .new-howto{
-  text-align: center;
-  &__recipe__name{
-
+  &__recipe-name{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #ff9f43;
+    margin-bottom: 20px; 
   }
   &__wrapper{
     display: flex;
+    margin-bottom: 20px;
   }
   &__image{
-    height: 400px;
-    width: 500px;
+    height: 300px;
+    width: 50%;
+    margin-right: 30px; 
   }
-  &__material{
+  &__detail{
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #ff9f43;
   }
+
 }
 
 

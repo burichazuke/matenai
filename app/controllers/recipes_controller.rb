@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def index
     @recipes = Recipe.order("created_at desc")
+    @recipe = Recipe.find_by(id: params[:id])
   end
 
   def new
@@ -14,6 +15,11 @@ class RecipesController < ApplicationController
     else
       render action: :new
     end
+  end
+
+  def show
+    @recipe = Recipe.find_by(id: params[:id])
+    @howtos = @recipe.howtos
   end
 
   

@@ -55,10 +55,10 @@
 
 .sidebar{
   width: 100%;
-  min-height: 500px;
+  min-height: 100px;
   box-sizing: border-box;
   opacity: 0.8;
-  box-shadow:5px 5px 5px 0px #8395a7;
+  box-shadow:1px 1px 1px 0px #8395a7;
 }
 
 
@@ -66,13 +66,14 @@
   width: calc(100% - 300px);
   min-height: 100vh;
   float: left;
+  text-align: center;
 }
 
 .recipes{
   width: 100%;
   height: 100vh;
   opacity: 0.8;
-  padding: 10px;
+  padding: 0 10px 10px;
 }
 
 .recipe{
@@ -92,23 +93,10 @@
   }
 }
 
-.grid-item{
-  width: 200px;
-  margin: 20px 0;
-  padding: 8px;
-  border-bottom: 3px solid;
-  border-radius: 5px;
-  background-color: #fff;
-}
 
-.grid-item .image{
-  display: block;
-  width: 100%;
-  min-height: 150px;
-}
 
-.grid-item .category{
-  padding: 15px 9px 10px;
+.card .category{
+  padding: 5px 9px;
   color: #ff9f43;
   font-weight: bold;
   letter-spacing: 1px;
@@ -116,7 +104,7 @@
   word-wrap: break-word;
 }
 
-.grid-item .category::before{
+.card .category::before{
   content: '';
   display: inline-block;
   width: 19px;
@@ -127,48 +115,29 @@
   vertical-align: -5px;
 }
 
-.grid-item .descripsion{
-  margin: 10px;
+.card .descripsion{
+  margin-bottom: 10px;
   line-height: 1.5;
   word-wrap: break-word;
 }
 
-.grid-item > a{
-  display: block;
-  margin: -8px -8px -11px;
-  padding: -8px -8px -11px;
-  border-radius: inherit;
-  color: #777;
-  transition: all 0.3s;
-  text-decoration: none;
-}
 
-.grid-item > a:hover{
+.card > a:hover{
   box-shadow: 0 0 6px -1px rgba(0, 0, 0, 0.3);
   opacity: 0.8;
 }
 
-h1 {
-  position: relative;
-  padding: 0.25em 1em;
-  border-top: solid 2px #ff9f43;
-  border-bottom: solid 2px #ff9f43;
-  display: inline;
-  font-size: 1.2rem;
+.list-group-item{
+  transition: .4s;
+  color: #222f3e;
   font-weight: bold;
 }
-h1:before, h1:after {
-  content: '';
-  position: absolute;
-  top: -7px;
-  width: 2px;
-  height: -webkit-calc(100% + 14px);
-  height: calc(100% + 14px);
-  background-color: #ff9f43;
+.list-group-item:hover{
+  background: #ff9f43;
+  color: #fff;
 }
-h1:before {
-  left: 7px;
-}
-h1:after {
-  right: 7px;
+
+#current-name{
+  background: #ff9f43;
+  color: #fff;
 }
