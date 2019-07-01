@@ -1,0 +1,58 @@
+<div class="new-howto">
+  <div class="new-recipe__header">
+    ヘッダーだよ
+  </div>
+  <div class="wrapper">
+    <div class="new-howto__recipe-name">
+      <%= @recipe.name %>
+    </div>
+    <div class="new-howto__wrapper">
+      <%= image_tag "#{@recipe.image}", class: "new-howto__image" %>
+      <div class="new-howto__material">
+        <p>材料一覧</p>
+        <%= @recipe.material %>
+      </div>
+    </div>
+    <div class="new-howto__detail">
+      <%= @recipe.detail %>
+    </div>
+
+    <ol class="howtos" id="howtos">
+
+      <%= render @howtos %>
+
+    </ol>
+
+    <div class="new-howto__forms">
+      <div class="new-howto__form">
+
+        <button id="open-modal">作り方を追加</button>
+        <div class="overlay" id="overlay">
+          <div class="modal-window" id="modal-window">
+            <p>作り方を入力</p>
+            <%= form_for [@recipe, @howto] do |f| %>
+              <%= f.text_area :content %><br>
+              <%= f.submit id: "send" %>
+              <%# <button id="close-modal" type="submit">保存</button> %>
+
+            <%end%>
+          </div>
+        </div>
+
+        <div class="overlay" id="overlay-edit">
+          <div class="modal-window" id="modal-edit">
+            <p>作り方を編集</p>
+            <%= form_for [@recipe, @howto], url: "/recipes/#{@recipe.id}/howtos/#{@howto.id}/", method: :patch do |f|%>
+              <%= f.text_area :content %><br>
+              <%= f.submit id: "send-edit" %>
+              <%# <button id="close-modal" type="submit">保存</button> %>
+
+            <%end%>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,30 @@
+.new-recipe__header{
+  width: 100vw;
+  height: 100px;
+  background-color: #feca57;
+}
+
+.new-recipe__form{
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 30px 30px;
+  text-align: center;
+  &__name{
+    width: 100%;
+    padding-bottom: 30px; 
+  }
+  &__wrapper{
+    padding-bottom: 30px;  
+  }
+  &__image{
+    padding-bottom: 30px; 
+  }
+  &__material{
+    padding-bottom: 30px;
+  }
+  &__submit{
+
+  }
+}
+

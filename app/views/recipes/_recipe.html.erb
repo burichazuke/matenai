@@ -1,0 +1,9 @@
+
+
+  <section class="grid-item">
+    <a href="/">
+      <%= image_tag "#{recipe.image}", class: "image"%>
+      <div class="category"><%= recipe.name %></div>
+      <p class="descripsion"><%= simple_format(recipe.detail) %></p> 
+    </a>
+  </section>
