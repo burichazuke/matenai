@@ -31,6 +31,9 @@
             <li><%= howto.content %></li>
           <% end %>
           </ol>
+          <% if user_signed_in? && current_user.id == @recipe.user.id %>
+          <button type=“button” onclick="location.href='/recipes/<%= @recipe.id %>/edit'">編集</button>
+          <% end %>
         </div>
       </div>
     </div>
