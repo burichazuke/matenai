@@ -9,29 +9,29 @@
 
     <div class="main">
       <div class="contents">
-      <div class="container">
-      <div class="new-howto__recipe-name">
-          <%= @recipe.name %>
-        </div>
-        <div class="new-howto__wrapper">
-          <%= image_tag "#{@recipe.image}", class: "new-howto__image" %>
-          <div class="new-howto__material">
-            <p>材料一覧</p>
-            <%= @recipe.material %>
+        <div class="container">
+          <div class="new-howto__recipe-name">
+            <%= @recipe.name %>
           </div>
+          <div class="new-howto__wrapper">
+            <%= image_tag "#{@recipe.image}", class: "new-howto__image" %>
+            <div class="new-howto__material">
+              <p>材料一覧</p>
+              <%= @recipe.material %>
+            </div>
+          </div>
+          <p>レシピの説明</p>
+          <div class="new-howto__detail">
+            <%= @recipe.detail %>
+          </div>
+          
+          <p>レシピの作り方</p>
+          <ol class="howtos" id="howtos">
+          <% @howtos.each do |howto| %>
+            <li><%= howto.content %></li>
+          <% end %>
+          </ol>
         </div>
-        <p>レシピの説明</p>
-        <div class="new-howto__detail">
-          <%= @recipe.detail %>
-        </div>
-        
-        <p>レシピの作り方</p>
-        <ol class="howtos" id="howtos">
-        <% @howtos.each do |howto| %>
-          <li><%= howto.content %></li>
-        <% end %>
-        </ol>
-      </div>
       </div>
     </div>
   </div>
