@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :howtos
   end
-  
+  get "products" => "products#index"
   resources :products
+  get "products/search" => "products#search"
 end

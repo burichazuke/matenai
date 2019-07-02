@@ -1,0 +1,50 @@
+<div class="header">
+  <div class="header__title">
+    
+  </div>
+  <div class="header__images">
+    <img src="../images/illustrain06-inu02.png" class="header__images--dog">
+    <img src="../images/illustrain10-inu02.png" class="header__images--disc">
+  </div>
+  <div class="header__detail">
+    
+  </div>
+</div>
+
+
+<div class="wrapper">
+  <div class="side">
+    <%= render partial: "recipes/sidebar" %>
+  </div>
+
+  <div class="main">
+    <div class="contents">
+      <div class="recipes">
+              
+      <div class="container">
+        <p class="new-howto__recipe-name">ドッグフード</p>
+          <div class="search">
+            <%= form_tag "products", method: :get do  %>
+              <%= label_tag :keyword, '' %>
+              <%= text_field_tag 'keyword', params[:keyword] %>
+              <%= submit_tag "search" %>
+            <% end %>
+          </div>
+        <div class="card-columns">
+          <% @items.each do |item| %>
+            <div class="card">
+              <a class="rakuten" href="<%= item['itemUrl'] %>" target="_blank">
+                <%= image_tag "#{item['mediumImageUrls'][0]}", class: "card-img-top"%>
+                <div class="card-body">
+                  <p class="category" ><%= item['itemName'] %></p>
+                  <p class="descripsion"><%= item['itemPrice'] %>円</p> 
+                </div>
+              </a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

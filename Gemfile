@@ -66,3 +66,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem "bootstrap", ">= 4.3.1"
+gem 'rakuten_web_service'

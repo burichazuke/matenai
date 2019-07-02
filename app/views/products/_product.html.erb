@@ -1,0 +1,11 @@
+
+<div class="card">
+  <a>
+    <%= image_tag "#{product['smallImageUrls'][0]}", class: "card-img-top"%>
+    <div class="card-body">
+      <p class="category"><%= recipe.name %></p>
+      <p class="descripsion"><%= simple_format(recipe.detail) %></p> 
+      <%= link_to "レシピ詳細を見る", "/recipes/#{recipe.id}"%>
+    </div>
+  </a>
+</div>
