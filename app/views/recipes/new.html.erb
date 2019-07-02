@@ -5,26 +5,7 @@
 
   <div class="wrapper">
     <div class="side">
-      <div class="sidebar">
-        <div class="category">
-          <div class="category__name">
-          <% if user_signed_in? %>
-          <div class="list-group-item" id="current-name">
-            <%= current_user.name %>
-          </div>
-          <% end %>
-          <%= link_to "トップページ", root_path, class:"list-group-item" %>
-          <% if user_signed_in? %>
-          <%= link_to "レシピ投稿", new_recipe_path, class:"list-group-item" %>
-          <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class:"list-group-item"  %>
-          
-          <% else %>
-          <%= link_to "新規登録", new_user_registration_path, class:"list-group-item"  %>
-          <%= link_to "サインイン", new_user_session_path, class:"list-group-item"  %>          
-          <% end %>
-          </div>
-        </div>
-      </div>
+      <%= render partial: "sidebar" %>
     </div>
 
     <div class="main">
