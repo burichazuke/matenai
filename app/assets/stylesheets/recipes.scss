@@ -54,11 +54,17 @@
 }
 
 .sidebar{
-  width: 100%;
+  width: 300px;
   min-height: 100px;
   box-sizing: border-box;
   opacity: 0.8;
   box-shadow:1px 1px 1px 0px #8395a7;
+  position: absolute;
+}
+
+.sidebar.sticky{
+  position: fixed;
+  top: 0%;
 }
 
 
