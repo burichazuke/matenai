@@ -35,6 +35,7 @@ $(function() {
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
+
     $.ajax({
       url: url,
       type: 'POST',
@@ -45,9 +46,15 @@ $(function() {
     })
     .done(function(howto) {
       console.log(howto.content)
-      var html = `<li class="howto">
-                    ${howto.content}
+      var html = `<li data-id="${howto.id}">
+                    <p>${howto.content}</p>
+                    <i id="delete-howto" class="fa fa-trash"></i>
                   </li>`
+      
+      // `<li class="howto">
+      //               ${howto.content}
+      //             <i id="delete-howto" class="fa fa-trash"></i>
+      //             </li>`
       if(howto.content !== ""){
         $('#howtos').append(html);
       }
@@ -64,43 +71,28 @@ $(function() {
 });
 
 
-// $(function() {
-//   $('.open-edit').on('click', function(){
-//     $('#overlay-edit,#modal-edit').fadeIn();
-//     var target = $(this).parent();
-//     var id = $(target).data('id')
-//     console.log(id)
-//     $('#send-edit').on('click',function(e) {
-//       e.preventDefault();
-//       var formData = new FormData('#new_howto');
-//       var url = $('#new_howto').attr('action' + '/'+id);
-//       console.log(url);
-//       // $.ajax({
-//       //   url: url,
-//       //   type: 'PACTH',
-//       //   data: formData,
-//       //   dataType: 'json',
-//       //   processData: false,
-//       //   contentType: false
-//       // })
-//       // .done(function(howto) {
-//       //   console.log(howto.content)
-//       //   // var html = `<li class="howto">
-//       //   //               ${howto.content}
-//       //   //             </li>`
-//       //   // if(howto.content !== ""){
-//       //   //   $('#howtos').append(html);
-//       //   // }
-              
-//       //   $('#send').attr('disabled', false);
-//       //   $('#new_howto')[0].reset();
-//       //   $('#overlay,#modal-window').fadeOut();
-//       // })
-//       // .fail(function() {
-//       //   $('#send').attr('disabled', false);
-//       //   alert('作り方を入力してください')
-//       // })
-//     })
-//   })
+$(function() {
+  $(document).on("click", '.fa-trash', function(){
+    var target = $(this).parent();
+    var id = $(target).data('id')
+    console.log(id)
+    var reg =location.href.match(/\/recipes\/\d+\/howtos/)
+    var url = reg + "/" + id
+    console.log(url);
+    $.ajax({
+      url: url,
+      type: 'DELETE',
+      data: {id: id},
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function() {
+      target.remove();
+    })
+    .fail(function() {
+      alert('エラー')
+    })
 
-// });
+  })
+});
