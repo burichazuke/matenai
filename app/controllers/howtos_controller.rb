@@ -27,6 +27,15 @@ class HowtosController < ApplicationController
     end
   end
 
+  def destroy
+    @howto = Howto.find(params[:id])
+    @howto.destroy
+    respond_to do |f|
+      f.json
+      f.html
+    end
+  end
+
 
   private
   def howtos_params

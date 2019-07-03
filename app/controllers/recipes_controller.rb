@@ -22,6 +22,15 @@ class RecipesController < ApplicationController
     @howtos = @recipe.howtos
   end
 
+  def edit
+    @recipe = Recipe.find_by(id: params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe.update(recipes_params)
+    redirect_to new_recipe_howto_path(@recipe)
+  end
   
 
 

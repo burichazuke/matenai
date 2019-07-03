@@ -1,0 +1,47 @@
+<div class="new-recipe">
+  <div class="new-recipe__header">
+    
+  </div>
+
+  <div class="wrapper">
+    <div class="side">
+      <%= render partial: "sidebar" %>
+    </div>
+
+    <div class="main">
+      <div class="contents">
+      <div class="container">
+        <p class="new-howto__recipe-name">レシピ作成</p>
+        <div class="new-recipe__form">
+          <%= form_for @recipe do |f| %>
+            <div class="new-recipe__form__name">
+              <%= f.label "レシピ名を入力"%><br>
+              <%= f.text_field :name, placeholder: "レシピ名", size: "60", class: "textline" %>
+            </div>
+            <div class="new-recipe__form__wrapper">
+              <div class="new-recipe__form__image">
+                <%= f.label "レシピの写真を投稿"%><br>
+                <%= f.file_field :image %>
+              </div>
+              <div class="new-recipe__form__detail">
+                <%= f.label "レシピ詳細を入力"%><br>
+                <%= f.text_area :detail, placeholder: "レシピ詳細", size: "60x10" %>
+              </div>
+
+            </div>
+            <div class="new-recipe__form__material">
+              <%= f.label "材料を入力"%><br>
+              <%= f.text_area :material, placeholder: "材料", size: "60x10" %>
+            </div>
+            <div class="new-recipe__form__submit">
+              <%= f.submit value: "保存して作り方の入力に進む"%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
