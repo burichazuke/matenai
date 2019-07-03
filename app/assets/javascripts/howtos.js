@@ -50,11 +50,6 @@ $(function() {
                     <p>${howto.content}</p>
                     <i id="delete-howto" class="fa fa-trash"></i>
                   </li>`
-      
-      // `<li class="howto">
-      //               ${howto.content}
-      //             <i id="delete-howto" class="fa fa-trash"></i>
-      //             </li>`
       if(howto.content !== ""){
         $('#howtos').append(html);
       }
